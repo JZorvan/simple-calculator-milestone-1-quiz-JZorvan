@@ -34,5 +34,16 @@ namespace SimpleCalculator.Tests
             Assert.IsTrue(Regex.IsMatch(test5));
             Assert.IsFalse(Regex.IsMatch(test6));
         }
+
+        [TestMethod]
+        public void CanPullGroupsIntoVariables()
+        {
+            string TestInput = "2 + 4";
+            TestExpression.Slicer(TestInput);
+
+            Assert.AreEqual(TestExpression.First, 2);
+            Assert.AreEqual(TestExpression.Second, 4);
+            Assert.AreEqual(TestExpression.Operator, "+");
+        }
     }
 }

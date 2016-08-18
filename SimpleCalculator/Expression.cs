@@ -12,17 +12,22 @@ namespace SimpleCalculator
         // Variables
        
         string pattern = @"^(?<Num1>-?\d+)\s?(?<Oper>[\+\-\*\/%])\s?(?<Num2>-?\d+)"; // Regex pattern for expressions
-        // public string First = "", Second = "", Operator = "";  // Parsed elements of the expressions
+        public int First { get; set; }
+        public int Second;
+        public string Operator = "";  // Parsed elements of the expressions
 
         public void Slicer(string UserInput)
         {
             // Instantiate Regex
             Regex Regex = new Regex(pattern);
+            Match Matches = Regex.Match(UserInput);
 
             // Checks the input against the Regular Expression
             if (true == Regex.IsMatch(UserInput))
             {
-
+                First = Convert.ToInt32(Matches.Groups["Num1"].Value);
+                Second = Convert.ToInt32(Matches.Groups["Num2"].Value);
+                Operator = Matches.Groups["Oper"].Value;
             }
             else  // If it isn't an acceptable expression..
             {
