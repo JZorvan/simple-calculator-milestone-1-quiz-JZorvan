@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Text.RegularExpressions;
 
 namespace SimpleCalculator.Tests
 {
@@ -7,7 +8,8 @@ namespace SimpleCalculator.Tests
     public class ExpressionTests
     {
         Expression TestExpression = new Expression();
-        string TestInput = "-23";
+        static string pattern = @"^(?<Num1>-?\d+)\s?(?<Oper>[\+\-\*\/%])\s?(?<Num2>-?\d+)";
+        Regex Regex = new Regex(pattern);
 
         [TestMethod]
         public void CanCreateAnInstanceOfExpression()
@@ -16,24 +18,21 @@ namespace SimpleCalculator.Tests
         }
 
         [TestMethod]
-        public void CanCheckIfFirstCharIsNeg()
+        public void CanCheckInputAgainstRegex()
         {
-            Assert.IsTrue(TestInput.StartsWith("-"));
-        }
+            string test1 = "1+2";
+            string test2 = "-58877 - -980009";
+            string test3 = "3*8";
+            string test4 = "9/3";
+            string test5 = "9 % 3";
+            string test6 = "balls";
 
-        [TestMethod]
-        public void CanAddHyphenIfAtStartOfString()
-        {
-            TestExpression.Slicer(TestInput);
-            Assert.AreEqual(TestExpression.First, "-");
-        }
-
-        [TestMethod]
-        public void CanRemoveLeadingHyphenFromOriginalString()
-        {
-            TestExpression.Slicer(TestInput);
-            Assert.AreEqual(TestInput, "23");
-            // Why the hell isn't this working??
+            Assert.IsTrue(Regex.IsMatch(test1));
+            Assert.IsTrue(Regex.IsMatch(test2));
+            Assert.IsTrue(Regex.IsMatch(test3));
+            Assert.IsTrue(Regex.IsMatch(test4));
+            Assert.IsTrue(Regex.IsMatch(test5));
+            Assert.IsFalse(Regex.IsMatch(test6));
         }
     }
 }

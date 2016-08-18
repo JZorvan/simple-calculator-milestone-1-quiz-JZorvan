@@ -15,18 +15,28 @@ namespace SimpleCalculator
             String Prompt1 = "[";
             String Prompt2 = "]>";
             int Counter = 0;
+            bool GoForth = true;
+            List<string> Exits = new List<string>() { "quit", "exit" };  // Recognized exit commands
 
             Expression myexp = new Expression();
 
             // Prints first prompt to Console
-            Console.Write(Prompt1 + Counter + Prompt2);
-            String UserInput = Console.ReadLine().ToLower();
-            Counter++; 
-            Console.WriteLine(UserInput);
-            myexp.Slicer(UserInput);
-            
+            while (GoForth == true)
+            {
+                Console.Write(Prompt1 + Counter + Prompt2);
+                String UserInput = Console.ReadLine().ToLower();
 
-            Console.Write(Prompt1 + Counter + Prompt2);
+                // Checks if input is an exit command, exits if so
+                if (Exits.Contains(UserInput))
+                {
+                    GoForth = false;
+                    Environment.Exit(0);
+                }
+                Counter++;  // Increased prompt counter
+                myexp.Slicer(UserInput);  // Runs splicer code
+            }
+            
+     
             Console.Read();
         }
     }
