@@ -12,7 +12,7 @@ namespace SimpleCalculator
         // Variables
        
         string pattern = @"^(?<Num1>-?\d+)\s?(?<Oper>[\+\-\*\/%])\s?(?<Num2>-?\d+)"; // Regex pattern for expressions
-        public int First { get; set; }
+        public int First;
         public int Second;
         public string Operator = "";  // Parsed elements of the expressions
 
