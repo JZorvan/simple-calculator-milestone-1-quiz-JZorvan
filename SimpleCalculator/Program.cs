@@ -31,8 +31,8 @@ namespace SimpleCalculator
                 String UserInput = Console.ReadLine().ToLower();  // Collects input in lower case
 
                 Handler.Exit(UserInput);  // Handles exit commands, if present
-                Expression.Slicer(UserInput);  // Runs splicer code
-
+                Expression.Slicer(UserInput);  // Runs splicer code, which evaluates and parses an expression
+                Expression.Calculate(Expression.Operator); // Runs calculate code, which determines and executes arithmatic
                 Counter++;  // Increases prompt counter
             } 
 

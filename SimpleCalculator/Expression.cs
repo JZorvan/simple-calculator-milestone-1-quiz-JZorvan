@@ -16,14 +16,16 @@ namespace SimpleCalculator
         public int First;
         public int Second;
         public string Operator = "";  // Parsed elements of the expressions
+        //Expression Exp = new Expression();
+        // Instantiate Calculator
+        Calculator Calculator = new Calculator();
 
         public void Slicer(string UserInput)
         {
             // Instantiate Regex
             Regex Regex = new Regex(pattern);
             Match Match = Regex.Match(UserInput);
-            // Instantiate Calculator
-            Calculator Calculator = new Calculator();
+
 
             // Checks the input against the Regular Expression
             if (true == Regex.IsMatch(UserInput))
@@ -31,11 +33,18 @@ namespace SimpleCalculator
                 First = Convert.ToInt32(Match.Groups["Num1"].Value);
                 Second = Convert.ToInt32(Match.Groups["Num2"].Value);
                 Operator = Match.Groups["Oper"].Value;
+                
             }
             else  // If it isn't an acceptable expression..
             {
                 Console.WriteLine("Your input is invalid, try again.");  //..delivers error message to user
+                Operator = null;
             }
+        }
+
+        public void Calculate(string Operator)
+        {
+            //Calculator Calc = new Calculator();
 
             if (Operator == "+")
             {
@@ -64,6 +73,11 @@ namespace SimpleCalculator
             {
                 Console.WriteLine("Answer:  " + Calculator.Modulus(First, Second));
             }
+            else if (Operator == null)
+            {
+                Console.Write("");
+            }
         }
+
     }
 }

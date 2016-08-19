@@ -8,6 +8,7 @@ namespace SimpleCalculator.Tests
     public class ExpressionTests
     {
         Expression TestExpression = new Expression();
+        Calculator Calculator = new Calculator();
         static string pattern = @"^(?<Num1>-?\d+)\s?(?<Oper>[\+\-\*\/%])\s?(?<Num2>-?\d+)";
         Regex Regex = new Regex(pattern);
 
