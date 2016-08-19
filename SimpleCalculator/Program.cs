@@ -16,32 +16,26 @@ namespace SimpleCalculator
             String Prompt2 = "]>  ";
             int Counter = 0;
             bool GoForth = true;
-            List<string> Exits = new List<string>() { "quit", "exit" };  // Recognized exit commands
+            // Instantiate Classes
+            Expression Expression = new Expression();
+            Calculator Calculator = new Calculator();  // I'm not using this yet.
+            Handler Handler = new Handler();
 
-            Expression myexp = new Expression();
-            Calculator myCalc = new Calculator();
-
-            Console.WriteLine("***  Welcome to Simple Calculator!  ***\r\nPlease enter an equation using two numbers.\r\nThis calculator can add, subtract, multiply, divide, and use the modulus.\r\nType 'lastq' to see the last equation you entered.\r\nType 'last' to repeat the last answer.\r\nType 'exit' or 'quit' when you are done.\r\n_______________________________________\r\n");
-            // Prints first prompt to Console
+            // Print an introduction to the program
+            Console.WriteLine("***  Welcome to Simple Calculator!  ***\r\nPlease enter an equation using two numbers.\r\nThis calculator can add, subtract, multiply, divide, and use the modulus.\r\nType 'lastq' to see the last input you entered.\r\nType 'last' to repeat the last answer.\r\nType 'exit' or 'quit' when you are done.\r\n_______________________________________\r\n");
+            
+            // Runs program in a loop
             while (GoForth == true)
             {
-                Console.Write(Prompt1 + Counter + Prompt2);
-                String UserInput = Console.ReadLine().ToLower();
+                Console.Write(Prompt1 + Counter + Prompt2);  // Prints prompt
+                String UserInput = Console.ReadLine().ToLower();  // Collects input in lower case
 
-                // Checks if input is an exit command, exits if so
-                if (Exits.Contains(UserInput))
-                {
-                    GoForth = false;
-                    Environment.Exit(0);
-                }
-                Counter++;  // Increased prompt counter
-                myexp.Slicer(UserInput);  // Runs splicer code
+                Handler.Exit(UserInput);  // Handles exit commands, if present
+                Expression.Slicer(UserInput);  // Runs splicer code
 
+                Counter++;  // Increases prompt counter
+            } 
 
-                
-            }
-            
-     
             Console.Read();
         }
     }
