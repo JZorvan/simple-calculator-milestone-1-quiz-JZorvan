@@ -13,7 +13,7 @@ namespace SimpleCalculator
         {
             // Prompt Variables
             String Prompt1 = "[";
-            String Prompt2 = "]>";
+            String Prompt2 = "]>  ";
             int Counter = 0;
             bool GoForth = true;
             List<string> Exits = new List<string>() { "quit", "exit" };  // Recognized exit commands

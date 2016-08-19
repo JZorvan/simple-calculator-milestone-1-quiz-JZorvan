@@ -22,15 +22,7 @@ namespace SimpleCalculator
         }
         public int Division(int First, int Second)
         {
-            if (Second == 0)
-            {
-                Console.WriteLine("You can't divide by zero, Holmes.");
-                return 0;
-            }
-            else
-            {
-                return First / Second;
-            }
+            return First / Second;
         }
         public int Modulus(int First, int Second)
         {
