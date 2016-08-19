@@ -21,6 +21,7 @@ namespace SimpleCalculator
             Expression myexp = new Expression();
             Calculator myCalc = new Calculator();
 
+            Console.WriteLine("***  Welcome to Simple Calculator!  ***\r\nPlease enter an equation using two numbers.\r\nThis calculator can add, subtract, multiply, divide, and use the modulus.\r\nType 'lastq' to see the last equation you entered.\r\nType 'last' to repeat the last answer.\r\nType 'exit' or 'quit' when you are done.\r\n_______________________________________\r\n");
             // Prints first prompt to Console
             while (GoForth == true)
             {
