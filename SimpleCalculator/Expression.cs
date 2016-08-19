@@ -39,15 +39,15 @@ namespace SimpleCalculator
 
             if (Operator == "+")
             {
-                Console.WriteLine("Answer:  " + Calculator.Addition(First, Second));
+                Console.WriteLine("Answer:  " + Calculator.Add(First, Second));
             }
             else if (Operator == "-")
             {
-                Console.WriteLine("Answer:  " + Calculator.Subtraction(First, Second));
+                Console.WriteLine("Answer:  " + Calculator.Subtract(First, Second));
             }
             else if (Operator == "*")
             {
-                Console.WriteLine("Answer:  " + Calculator.Multiplication(First, Second));
+                Console.WriteLine("Answer:  " + Calculator.Multiply(First, Second));
             }
             else if (Operator == "/")
             {
@@ -57,7 +57,7 @@ namespace SimpleCalculator
                 }
                 else
                 {
-                    Console.WriteLine("Answer:  " + Calculator.Division(First, Second));
+                    Console.WriteLine("Answer:  " + Calculator.Divide(First, Second));
                 }
             }
             else if (Operator == "%")

@@ -23,7 +23,7 @@ namespace SimpleCalculator.Tests
         {
             int First = 2, Second = 2;
 
-            Assert.AreEqual(TestCalculator.Addition(First, Second), 4);
+            Assert.AreEqual(TestCalculator.Add(First, Second), 4);
         }
 
         [TestMethod]
@@ -31,7 +31,7 @@ namespace SimpleCalculator.Tests
         {
             int First = 3, Second = 2;
 
-            Assert.AreEqual(TestCalculator.Subtraction(First, Second), 1);
+            Assert.AreEqual(TestCalculator.Subtract(First, Second), 1);
 
         }
 
@@ -40,7 +40,7 @@ namespace SimpleCalculator.Tests
         {
             int First = 2, Second = 5;
 
-            Assert.AreEqual(TestCalculator.Multiplication(First, Second), 10);
+            Assert.AreEqual(TestCalculator.Multiply(First, Second), 10);
         }
 
         [TestMethod]
@@ -48,7 +48,7 @@ namespace SimpleCalculator.Tests
         {
             int First = 6, Second = 3;
 
-            Assert.AreEqual(TestCalculator.Division(First, Second), 2);
+            Assert.AreEqual(TestCalculator.Divide(First, Second), 2);
         }
 
         [TestMethod]
