@@ -20,14 +20,16 @@ namespace SimpleCalculator
         {
             // Instantiate Regex
             Regex Regex = new Regex(pattern);
-            Match Matches = Regex.Match(UserInput);
+            Match Match = Regex.Match(UserInput);
+            // Instantiate Calculator
+            Calculator Calculator = new Calculator();
 
             // Checks the input against the Regular Expression
             if (true == Regex.IsMatch(UserInput))
             {
-                First = Convert.ToInt32(Matches.Groups["Num1"].Value);
-                Second = Convert.ToInt32(Matches.Groups["Num2"].Value);
-                Operator = Matches.Groups["Oper"].Value;
+                First = Convert.ToInt32(Match.Groups["Num1"].Value);
+                Second = Convert.ToInt32(Match.Groups["Num2"].Value);
+                Operator = Match.Groups["Oper"].Value;
             }
             else  // If it isn't an acceptable expression..
             {

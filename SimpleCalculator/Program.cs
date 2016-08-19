@@ -19,6 +19,7 @@ namespace SimpleCalculator
             List<string> Exits = new List<string>() { "quit", "exit" };  // Recognized exit commands
 
             Expression myexp = new Expression();
+            Calculator myCalc = new Calculator();
 
             // Prints first prompt to Console
             while (GoForth == true)
@@ -34,6 +35,9 @@ namespace SimpleCalculator
                 }
                 Counter++;  // Increased prompt counter
                 myexp.Slicer(UserInput);  // Runs splicer code
+
+
+                
             }
             
      
