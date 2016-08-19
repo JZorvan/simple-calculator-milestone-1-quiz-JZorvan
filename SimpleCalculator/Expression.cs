@@ -16,7 +16,7 @@ namespace SimpleCalculator
         public int First;
         public int Second;
         public string Operator = "";  // Parsed elements of the expressions
-        //Expression Exp = new Expression();
+        
         // Instantiate Calculator
         Calculator Calculator = new Calculator();
 
@@ -35,7 +35,7 @@ namespace SimpleCalculator
                 Operator = Match.Groups["Oper"].Value;
                 
             }
-            else  // If it isn't an acceptable expression..
+            else if (false == Regex.IsMatch(UserInput)) // If it isn't an acceptable expression..
             {
                 Console.WriteLine("Your input is invalid, try again.");  //..delivers error message to user
                 Operator = null;
