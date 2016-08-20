@@ -10,7 +10,7 @@ namespace SimpleCalculator
     public class Expression
     {
         // Variables
-        string ExpPattern = @"^(?<Num1>-?\d+)\s?(?<Oper>[\+\-\*\/%])\s?(?<Num2>-?\d+)"; // Regex pattern for expressions
+        string ExpPattern = @"^(?<Num1>-?\d+)\s?(?<Oper>[\+\-\*\/%])\s?(?<Num2>-?\d+)$"; // Regex pattern for expressions
         public int First;  // Parsed elements of the expression
         public int Second;
         public string Operator = "";  
@@ -19,6 +19,7 @@ namespace SimpleCalculator
         // Instantiate
         Calculator Calculator = new Calculator();
         Stack Stack = new Stack();
+        Constants Constants = new Constants();
 
         // Handles the evaluation and parses the expression
         public void Slicer(string UserInput)

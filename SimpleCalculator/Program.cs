@@ -19,7 +19,6 @@ namespace SimpleCalculator
 
             // Instantiate Classes
             Expression Expression = new Expression();
-            Calculator Calculator = new Calculator();  // I'm not using this yet.
             Handler Handler = new Handler();
             Stack Stack = new Stack();
             Constants Constants = new Constants();
@@ -36,14 +35,16 @@ namespace SimpleCalculator
                 Handler.Exit(UserInput);  // Handles exit commands, if present
 
                 Stack.LastQ(UserInput);  // Prints last input, if user types 'lastq'
-
-                Constants.SliceConstant(UserInput);  // Checks to see if user is trying to set a constant
                 
                 if (Stack.DoThis == true)
                 {
                     Stack.LastAnswer(UserInput, Expression.Answer);  // Print last answer, if user types 'last'
                 }
                 if (Stack.DoThis == true)
+                {
+                    Constants.SliceConstant(UserInput);  // Checks to see if user is trying to set a constant
+                }
+                if (Constants.KeepGoing == true)
                 {
                     Expression.Slicer(UserInput);  // Runs splicer code, which evaluates and parses an expression
                     Expression.Calculate(Expression.Operator, UserInput); // Runs calculate code, which determines and executes arithmatic

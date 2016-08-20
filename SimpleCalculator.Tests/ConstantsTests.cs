@@ -17,5 +17,14 @@ namespace SimpleCalculator.Tests
         {
             Assert.IsNotNull(TestConstants);
         }
+
+        [TestMethod]
+        public void CanSetAConstant()
+        {
+            TestConstants.SliceConstant("x=3");
+
+            Assert.AreEqual(TestConstants.Variable, "x");
+            Assert.AreEqual(TestConstants.ConstantValue, 3);
+        }
     }
 }
