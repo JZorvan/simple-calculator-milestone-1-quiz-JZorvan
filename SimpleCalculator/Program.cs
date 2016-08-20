@@ -33,14 +33,19 @@ namespace SimpleCalculator
                 String UserInput = Console.ReadLine().ToLower();  // Collects input in lower case
 
                 Handler.Exit(UserInput);  // Handles exit commands, if present
+
                 Stack.LastQ(UserInput);  // Prints last input, if user types 'lastq'
 
-                // if input isn't one of these commands, continue to evaluation and math
+                if (Stack.DoThis == true)
+                {
+                    Stack.LastAnswer(UserInput);  // Print last answer, if user types 'last'
+                }
                 if (Stack.DoThis == true)
                 {
                     Expression.Slicer(UserInput);  // Runs splicer code, which evaluates and parses an expression
                     Expression.Calculate(Expression.Operator); // Runs calculate code, which determines and executes arithmatic
-                }               
+                }
+                   
                 Counter++;  // Increases prompt counter
                 Stack.LastInput = UserInput;  // Save the user input into a new variable before repeating so it can be recalled
             } 

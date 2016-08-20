@@ -16,9 +16,11 @@ namespace SimpleCalculator
         public int First;
         public int Second;
         public string Operator = "";  // Parsed elements of the expressions
-        
-        // Instantiate Calculator
+        // public int Answer;
+
+        // Instantiate
         Calculator Calculator = new Calculator();
+        Stack Stack = new Stack();
 
         public void Slicer(string UserInput)
         {
@@ -44,19 +46,20 @@ namespace SimpleCalculator
 
         public void Calculate(string Operator)
         {
-            //Calculator Calc = new Calculator();
-
             if (Operator == "+")
             {
-                Console.WriteLine("Answer:  " + Calculator.Add(First, Second));
+                Stack.Answer = Calculator.Add(First, Second);
+                Console.WriteLine("Answer:  " + Stack.Answer);
             }
             else if (Operator == "-")
             {
-                Console.WriteLine("Answer:  " + Calculator.Subtract(First, Second));
+                Stack.Answer = Calculator.Subtract(First, Second);
+                Console.WriteLine("Answer:  " + Stack.Answer);
             }
             else if (Operator == "*")
             {
-                Console.WriteLine("Answer:  " + Calculator.Multiply(First, Second));
+                Stack.Answer = Calculator.Multiply(First, Second);
+                Console.WriteLine("Answer:  " + Stack.Answer);
             }
             else if (Operator == "/")
             {
@@ -66,18 +69,19 @@ namespace SimpleCalculator
                 }
                 else
                 {
-                    Console.WriteLine("Answer:  " + Calculator.Divide(First, Second));
+                    Stack.Answer = Calculator.Divide(First, Second);
+                    Console.WriteLine("Answer:  " + Stack.Answer);
                 }
             }
             else if (Operator == "%")
             {
-                Console.WriteLine("Answer:  " + Calculator.Modulus(First, Second));
+                Stack.Answer = Calculator.Modulus(First, Second);
+                Console.WriteLine("Answer:  " + Stack.Answer);
             }
             else if (Operator == null)
             {
                 Console.Write("");
             }
         }
-
     }
 }

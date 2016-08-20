@@ -11,12 +11,26 @@ namespace SimpleCalculator
     {
         public string LastInput;
         public bool DoThis = true;
+        public int Answer;
 
         public void LastQ(string UserInput)
         {
             if (UserInput == "lastq")  // If input is 'lastq', print last command to console and switches off evaluation and calculation
             {
-                Console.WriteLine(LastInput);
+                Console.WriteLine("Your last command:  " + LastInput);
+                DoThis = false;
+            }
+            else  // Switches evaluation and calculation to 'on', in case it was turned off
+            {
+                DoThis = true;
+            }
+
+        }
+        public void LastAnswer(string UserInput)
+        {
+            if (UserInput == "last")  // If input is 'last', print last answer to console and switches off evaluation and calculation
+            {
+                Console.WriteLine("Your last answer was:  " + Answer);
                 DoThis = false;
             }
             else  // Switches evaluation and calculation to 'on', in case it was turned off
