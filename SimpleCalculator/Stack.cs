@@ -9,36 +9,36 @@ namespace SimpleCalculator
 {
     public class Stack
     {
-        public string LastInput;
-        public bool DoThis = true;
-  
-        // Expression Expression = new Expression();
+        // Variables
+        public string LastInput;  // Input is saved to this after use, in case of 'lastq' command
+        public bool DoThis = true;  // Used to turn program progression on or off
 
+        // Allows recall of a user's last command
         public void LastQ(string UserInput)
         {
             if (UserInput == "lastq")  // If input is 'lastq', print last command to console and switches off evaluation and calculation
             {
-                Console.WriteLine("Your last command:  " + LastInput);
-                DoThis = false;
+                Console.WriteLine("Your last command:  " + LastInput);  // Prints
+                DoThis = false;  // Turns off evaluation and calculation
             }
             else  // Switches evaluation and calculation to 'on', in case it was turned off
             {
                 DoThis = true;
             }
-
         }
+
+        //  Handles recall of the answer that was printed to the console
         public void LastAnswer(string UserInput, int Answer)
         {
             if (UserInput == "last")  // If input is 'last', print last answer to console and switches off evaluation and calculation
             {
-                Console.WriteLine("Your last answer was:  " + Answer);
-                DoThis = false;
+                Console.WriteLine("Your last answer was:  " + Answer);  // Prints
+                DoThis = false;  // Turns off evaluation and calculation
             }
             else  // Switches evaluation and calculation to 'on', in case it was turned off
             {
                 DoThis = true;
             }
-
         }
     }
 }

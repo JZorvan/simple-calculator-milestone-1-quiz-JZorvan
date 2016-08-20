@@ -11,23 +11,22 @@ namespace SimpleCalculator
     public class Expression
     {
         // Variables
-       
         string pattern = @"^(?<Num1>-?\d+)\s?(?<Oper>[\+\-\*\/%])\s?(?<Num2>-?\d+)"; // Regex pattern for expressions
-        public int First;
+        public int First;  // Parsed elements of the expression
         public int Second;
-        public string Operator = "";  // Parsed elements of the expressions
-        public int Answer;
+        public string Operator = "";  
+        public int Answer;  // Holds the answer once math is complete
 
         // Instantiate
         Calculator Calculator = new Calculator();
         Stack Stack = new Stack();
 
+        // Handles the evaluation and parses the expression
         public void Slicer(string UserInput)
         {
             // Instantiate Regex
             Regex Regex = new Regex(pattern);
             Match Match = Regex.Match(UserInput);
-
 
             // Checks the input against the Regular Expression
             if (true == Regex.IsMatch(UserInput))
@@ -44,29 +43,30 @@ namespace SimpleCalculator
             }
         }
 
+        // Evaluates the operator, calls the right math method, prints answer, and passes answer to it's recall method
         public void Calculate(string Operator, string UserInput)
         {
-            if (Operator == "+")
+            if (Operator == "+")  // Addition
             {
                 Answer = Calculator.Add(First, Second);
                 Console.WriteLine("Answer:  " + Answer);
                 Stack.LastAnswer(UserInput, Answer);
             }
-            else if (Operator == "-")
+            else if (Operator == "-")  // Subtraction
             {
                 Answer = Calculator.Subtract(First, Second);
                 Console.WriteLine("Answer:  " + Answer);
                 Stack.LastAnswer(UserInput, Answer);
             }
-            else if (Operator == "*")
+            else if (Operator == "*")  // Multiplication
             {
                 Answer = Calculator.Multiply(First, Second);
                 Console.WriteLine("Answer:  " + Answer);
                 Stack.LastAnswer(UserInput, Answer);
             }
-            else if (Operator == "/")
+            else if (Operator == "/")  // Division
             {
-                if (Second == 0)
+                if (Second == 0)  // Throws error message if trying to divide by zero
                 {
                     Console.WriteLine("You can't divide by zero, Holmes.");
                 }
@@ -77,15 +77,11 @@ namespace SimpleCalculator
                     Stack.LastAnswer(UserInput, Answer);
                 }
             }
-            else if (Operator == "%")
+            else if (Operator == "%")  // Modulus Function
             {
                 Answer = Calculator.Modulus(First, Second);
                 Console.WriteLine("Answer:  " + Answer);
                 Stack.LastAnswer(UserInput, Answer);
-            }
-            else if (Operator == null)
-            {
-                Console.Write("");
             }
         }
     }
