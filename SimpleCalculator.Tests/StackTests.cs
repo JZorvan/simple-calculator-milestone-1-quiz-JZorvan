@@ -11,7 +11,6 @@ namespace SimpleCalculator.Tests
     public class StackTests
     {
         Stack TestStack = new Stack();
-        public bool DoThis = true;
 
         [TestMethod]
         public void CanCreateAnInstanceOfStack()
@@ -23,10 +22,16 @@ namespace SimpleCalculator.Tests
         public void CanUseLastQ()
         {
             TestStack.LastQ("lastq");
-            Assert.IsFalse(DoThis);
 
-            TestStack.LastQ("DoThis should remain true");
-            Assert.IsTrue(DoThis);
+            Assert.IsFalse(TestStack.DoThis);
+        }
+
+        [TestMethod]
+        public void CanUseLastAnswer()
+        {
+            TestStack.LastAnswer("last", 5);
+
+            Assert.IsFalse(TestStack.DoThis);
         }
     }
 }

@@ -11,7 +11,8 @@ namespace SimpleCalculator
     {
         public string LastInput;
         public bool DoThis = true;
-        public int Answer;
+  
+        // Expression Expression = new Expression();
 
         public void LastQ(string UserInput)
         {
@@ -26,7 +27,7 @@ namespace SimpleCalculator
             }
 
         }
-        public void LastAnswer(string UserInput)
+        public void LastAnswer(string UserInput, int Answer)
         {
             if (UserInput == "last")  // If input is 'last', print last answer to console and switches off evaluation and calculation
             {

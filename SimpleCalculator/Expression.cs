@@ -16,7 +16,7 @@ namespace SimpleCalculator
         public int First;
         public int Second;
         public string Operator = "";  // Parsed elements of the expressions
-        // public int Answer;
+        public int Answer;
 
         // Instantiate
         Calculator Calculator = new Calculator();
@@ -44,22 +44,25 @@ namespace SimpleCalculator
             }
         }
 
-        public void Calculate(string Operator)
+        public void Calculate(string Operator, string UserInput)
         {
             if (Operator == "+")
             {
-                Stack.Answer = Calculator.Add(First, Second);
-                Console.WriteLine("Answer:  " + Stack.Answer);
+                Answer = Calculator.Add(First, Second);
+                Console.WriteLine("Answer:  " + Answer);
+                Stack.LastAnswer(UserInput, Answer);
             }
             else if (Operator == "-")
             {
-                Stack.Answer = Calculator.Subtract(First, Second);
-                Console.WriteLine("Answer:  " + Stack.Answer);
+                Answer = Calculator.Subtract(First, Second);
+                Console.WriteLine("Answer:  " + Answer);
+                Stack.LastAnswer(UserInput, Answer);
             }
             else if (Operator == "*")
             {
-                Stack.Answer = Calculator.Multiply(First, Second);
-                Console.WriteLine("Answer:  " + Stack.Answer);
+                Answer = Calculator.Multiply(First, Second);
+                Console.WriteLine("Answer:  " + Answer);
+                Stack.LastAnswer(UserInput, Answer);
             }
             else if (Operator == "/")
             {
@@ -69,14 +72,16 @@ namespace SimpleCalculator
                 }
                 else
                 {
-                    Stack.Answer = Calculator.Divide(First, Second);
-                    Console.WriteLine("Answer:  " + Stack.Answer);
+                    Answer = Calculator.Divide(First, Second);
+                    Console.WriteLine("Answer:  " + Answer);
+                    Stack.LastAnswer(UserInput, Answer);
                 }
             }
             else if (Operator == "%")
             {
-                Stack.Answer = Calculator.Modulus(First, Second);
-                Console.WriteLine("Answer:  " + Stack.Answer);
+                Answer = Calculator.Modulus(First, Second);
+                Console.WriteLine("Answer:  " + Answer);
+                Stack.LastAnswer(UserInput, Answer);
             }
             else if (Operator == null)
             {

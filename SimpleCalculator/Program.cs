@@ -38,12 +38,12 @@ namespace SimpleCalculator
 
                 if (Stack.DoThis == true)
                 {
-                    Stack.LastAnswer(UserInput);  // Print last answer, if user types 'last'
+                    Stack.LastAnswer(UserInput, Expression.Answer);  // Print last answer, if user types 'last'
                 }
                 if (Stack.DoThis == true)
                 {
                     Expression.Slicer(UserInput);  // Runs splicer code, which evaluates and parses an expression
-                    Expression.Calculate(Expression.Operator); // Runs calculate code, which determines and executes arithmatic
+                    Expression.Calculate(Expression.Operator, UserInput); // Runs calculate code, which determines and executes arithmatic
                 }
                    
                 Counter++;  // Increases prompt counter

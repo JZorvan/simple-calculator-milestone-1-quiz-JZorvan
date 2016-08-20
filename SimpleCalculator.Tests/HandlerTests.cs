@@ -17,13 +17,5 @@ namespace SimpleCalculator.Tests
         {
             Assert.IsNotNull(TestHandler);
         }
-
-        [TestMethod]
-        public void CanRunExitEffectively()
-        {
-            Assert.IsTrue(TestHandler.Exit("exit"));
-            Assert.IsTrue(TestHandler.Exit("quit"));
-            Assert.IsFalse(TestHandler.Exit("This should fail"));
-        }
     }
 }
