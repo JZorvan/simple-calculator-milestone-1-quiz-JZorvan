@@ -22,6 +22,7 @@ namespace SimpleCalculator
             Calculator Calculator = new Calculator();  // I'm not using this yet.
             Handler Handler = new Handler();
             Stack Stack = new Stack();
+            Constants Constants = new Constants();
 
             // Print an introduction to the program
             Console.WriteLine("***  Welcome to Simple Calculator!  ***\r\nPlease enter an equation using two numbers.\r\nThis calculator can add, subtract, multiply, divide, and use the modulus.\r\nType 'lastq' to see the last input you entered.\r\nType 'last' to repeat the last answer.\r\nType 'exit' or 'quit' when you are done.\r\n_______________________________________\r\n");
@@ -36,6 +37,8 @@ namespace SimpleCalculator
 
                 Stack.LastQ(UserInput);  // Prints last input, if user types 'lastq'
 
+                Constants.SliceConstant(UserInput);  // Checks to see if user is trying to set a constant
+                
                 if (Stack.DoThis == true)
                 {
                     Stack.LastAnswer(UserInput, Expression.Answer);  // Print last answer, if user types 'last'

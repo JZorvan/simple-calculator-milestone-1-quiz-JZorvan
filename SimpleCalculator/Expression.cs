@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Threading;
 using System.Text.RegularExpressions;
 
 namespace SimpleCalculator
@@ -11,7 +10,7 @@ namespace SimpleCalculator
     public class Expression
     {
         // Variables
-        string pattern = @"^(?<Num1>-?\d+)\s?(?<Oper>[\+\-\*\/%])\s?(?<Num2>-?\d+)"; // Regex pattern for expressions
+        string ExpPattern = @"^(?<Num1>-?\d+)\s?(?<Oper>[\+\-\*\/%])\s?(?<Num2>-?\d+)"; // Regex pattern for expressions
         public int First;  // Parsed elements of the expression
         public int Second;
         public string Operator = "";  
@@ -25,18 +24,18 @@ namespace SimpleCalculator
         public void Slicer(string UserInput)
         {
             // Instantiate Regex
-            Regex Regex = new Regex(pattern);
-            Match Match = Regex.Match(UserInput);
+            Regex ExpRegex = new Regex(ExpPattern);
+            Match ExpMatch = ExpRegex.Match(UserInput);
 
             // Checks the input against the Regular Expression
-            if (true == Regex.IsMatch(UserInput))
+            if (true == ExpRegex.IsMatch(UserInput))
             {
-                First = Convert.ToInt32(Match.Groups["Num1"].Value);
-                Second = Convert.ToInt32(Match.Groups["Num2"].Value);
-                Operator = Match.Groups["Oper"].Value;
-                
+                First = Convert.ToInt32(ExpMatch.Groups["Num1"].Value);
+                Second = Convert.ToInt32(ExpMatch.Groups["Num2"].Value);
+                Operator = ExpMatch.Groups["Oper"].Value;
+               
             }
-            else if (false == Regex.IsMatch(UserInput)) // If it isn't an acceptable expression..
+            else if (false == ExpRegex.IsMatch(UserInput)) // If it isn't an acceptable expression..
             {
                 Console.WriteLine("Your input is invalid, try again.");  //..delivers error message to user
                 Operator = null;
