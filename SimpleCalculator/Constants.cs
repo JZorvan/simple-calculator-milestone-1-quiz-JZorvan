@@ -40,6 +40,10 @@ namespace SimpleCalculator
                     Console.WriteLine("You have set '" + Variable + "' to equal " + ConstantValue + ".");  // Prints verification
                 }
             }
+            else
+            {
+                KeepGoing = true;
+            }
         }
     }
 }
