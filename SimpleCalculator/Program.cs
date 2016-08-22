@@ -24,7 +24,7 @@ namespace SimpleCalculator
             Constants Constants = new Constants();
 
             // Print an introduction to the program
-            Console.WriteLine("***  Welcome to Simple Calculator!  ***\r\nPlease enter an equation using two numbers.\r\nThis calculator can add, subtract, multiply, divide, and use the modulus.\r\nType 'lastq' to see the last input you entered.\r\nType 'last' to repeat the last answer.\r\nType 'exit' or 'quit' when you are done.\r\n_______________________________________\r\n");
+            Console.WriteLine("***  Welcome to Simple Calculator!  ***\r\nPlease enter an equation using two numbers.\r\nThis calculator can add, subtract, multiply, divide, and use the modulus.\r\nYou can make any letter a variable using '=', but they can only be set once.\r\nType 'lastq' to see the last input you entered.\r\nType 'last' to repeat the last answer.\r\nType 'exit' or 'quit' when you are done.\r\n_______________________________________\r\n");
             
             // Runs program in a loop
             while (GoForth == true)

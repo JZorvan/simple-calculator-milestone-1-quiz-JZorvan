@@ -41,15 +41,8 @@ namespace SimpleCalculator
             if (UserInput == "last")  // If input is 'last', print last answer to console and switches off evaluation and calculation
             {
                 DoThis = false;  // Turns off evaluation and calculation
-                if (Answer != 0)
-                {
-                    Console.WriteLine("Your last answer was:  " + Answer);  // Prints
-                }
-                else
-                {
-                    Console.WriteLine("No equations have been entered yet");
-                }
 
+                Console.WriteLine("Your last answer was:  " + Answer);  // Prints
             }
             else  // Switches evaluation and calculation to 'on', in case it was turned off
             {
