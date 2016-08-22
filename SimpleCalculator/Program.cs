@@ -47,7 +47,10 @@ namespace SimpleCalculator
                 if ((Constants.KeepGoing == true) && (Stack.DoThis == true))
                 {
                     Expression.Slicer(UserInput);  // Runs splicer code, which evaluates and parses an expression
-                    Expression.Calculate(Expression.Operator, UserInput); // Runs calculate code, which determines and executes arithmatic
+                    if (Expression.DoMath == true)
+                    {
+                        Expression.Calculate(Expression.Operator, UserInput); // Runs calculate code, which determines and executes arithmatic
+                    }
                 }
                    
                 Counter++;  // Increases prompt counter
