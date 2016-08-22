@@ -18,8 +18,16 @@ namespace SimpleCalculator
         {
             if (UserInput == "lastq")  // If input is 'lastq', print last command to console and switches off evaluation and calculation
             {
-                Console.WriteLine("Your last command:  " + LastInput);  // Prints
                 DoThis = false;  // Turns off evaluation and calculation
+                if (LastInput != "")
+                {
+                    Console.WriteLine("Your last command:  " + LastInput);  // Prints
+                }
+                else
+                {
+                    Console.WriteLine("You haven't entered any previous command.");      
+                }
+
             }
             else  // Switches evaluation and calculation to 'on', in case it was turned off
             {
@@ -32,8 +40,16 @@ namespace SimpleCalculator
         {
             if (UserInput == "last")  // If input is 'last', print last answer to console and switches off evaluation and calculation
             {
-                Console.WriteLine("Your last answer was:  " + Answer);  // Prints
                 DoThis = false;  // Turns off evaluation and calculation
+                if (Answer != 0)
+                {
+                    Console.WriteLine("Your last answer was:  " + Answer);  // Prints
+                }
+                else
+                {
+                    Console.WriteLine("No equations have been entered yet");
+                }
+
             }
             else  // Switches evaluation and calculation to 'on', in case it was turned off
             {
